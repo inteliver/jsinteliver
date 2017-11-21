@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <script src="script.js"></script> -->
+
+<script src="jsinteliver.js" type="text/javascript"></script>
+<script>
+  console.log(pr("Amir")); 
+  config = new InteliverConfig('amir', 'token')
+  //document.getElementById("test").innerHTML = getConfig().cloudname +'\t'+ getConfig().token; 
+  //new Uploader(config).upload('me.jpg')
+  resource_key = '000220973186370000000000000000000071.jpg'
+  rt = new InteliverRetrieve(config)
+  console.log(rt.config)
+  rt.print()
+  rt.select_face()
+  rt.select('height', 200)
+  rt.select('width', 150)
+  rt.image_crop(round_crop=true)
+  rt.image_change_format('PNG')
+  console.log(rt.build_url(resource_key))
+
+</script>
+  </head>
+  <body>
+    <!-- page content -->
+    This is test
+    <input type='file' accept='image/*' onchange='new Uploader(config).upload(event)'><br>
+    <img id='output'>
+
+    <p id="test"></p>
+
+    
+  </body>
+</html>
